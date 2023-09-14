@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <style>
+        *{
+            padding : 0;
+            margin : 0;
+            box-sizing : border-box;
+
+        }
+        body {
+            display : flex;
+            align-items: center;
+            justify-content: center;
+            width : 100vw;
+            height : 100vh;
+        }
+        .container{
+            width:36%;
+            background-color:rgb(55, 53, 53);
+           margin : auto;
+            
+            
+        }
+        .button{
+            /* width:130px;
+            height:80px; */
+            background-color:rgb(103, 96, 96);
+            color:white;
+            font-size:30px;
+            /* margin-top:2px;
+            margin-bottom:5px; */
+            
+            
+
+        }
+        .button:hover{
+            background-color:rgb(176, 171, 171);
+        }
+        .input{
+            width: 100%;
+            height:70px;
+            font-size:30px;
+            text-align:right;
+            
+            
+        }
+        h1{
+            text-align: center;
+            padding:20px;
+            color:white;
+        }
+        .btnn{
+            width:130px;
+            height:80px;
+            background-color:rgb(103, 96, 96);
+            color:white;
+            font-size:30px;
+            margin-bottom:5px;
+            background-color:rgb(255, 157, 0);
+            
+        }
+        .buttonn{
+            width:265px;
+            height:80px;
+            background-color:rgb(255, 98, 0);
+            color:white;
+            font-size:30px;
+            margin-top:2px;
+            margin-bottom:5px;
+
+        }
+        #btb div{
+            display  : grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+           
+        }
+        @media(max-width:600px){
+            .container{
+                width:90%;
+            
+            }
+        
+
+
+        }
+    </style>
+    
+
+</head>
+<body>
+    <div class="container">
+        <h1>CALCULATOR</h1>
+        <div class="calculator">
+            <form>
+                <div class="display">
+                <input  id = "input" type="text" placeholder="display" class="input">
+                </div>
+            </form>
+            <div id="btb">
+
+
+        
+            <div>
+                <input type="button"  class="button" value="AC" >
+                <input type="button" class="button" value="DE">
+                <input type="button" class="button" value="." >
+                <input type="button" class="button" value="/" >
+            </div>
+            <div>
+                <input type="button" class="button" value="7" >
+                <input type="button" class="button" value="8" >
+                <input type="button" class="button" value="9" >
+                <input type="button" class="button" value="*" >
+            </div>
+            <div>
+                <input type="button" class="button" value="4" >
+                <input type="button" class="button" value="5" >
+                <input type="button" class="button" value="6" >
+                <input type="button" class="button" value="-" >
+            </div>
+            <div>
+                <input type="button" class="button" value="1" >
+                <input type="button" class="button" value="2" >
+                <input type="button" class="button" value="3" >
+                <input type="button" class="button"    value="+" >
+            </div>
+            <div>
+                <input type="button" class="button" value="00" >
+                <input type="button" class="button" value="0">
+                <input type="button" class="button" value="=" >
+            </div>
+            
+            
+        </div>
+        </div>
+    </div>
+    <script>
+        let string = "";
+        let buttons = document.querySelectorAll('.button');
+        Array.from(buttons).forEach((button) => {
+
+            button.addEventListener('click',(e)=>{
+                if(e.target.value == '='){
+                    string=eval(string);
+                    console.log("the stirng is ", string)
+                    document.querySelector('#input').value=string;
+                }
+                else if(e.target.value == 'AC'){
+                    string= ''
+                    document.querySelector('#input').value=string;
+
+
+                }
+                else if(e.target.value == 'DE'){
+                    string= string.slice(0,-1)
+                    document.querySelector('#input').value=string;
+                }
+                
+                else{
+                    console.log("the e target is ", e.target.value)
+                    string=string+e.target.value;
+                    document.querySelector('#input').value=string;
+                }
+            })
+
+        }
+        )
+    
+    
+    </script>
+
+    
+</body>
+</html>
